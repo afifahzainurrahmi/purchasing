@@ -1,0 +1,117 @@
+<div class="portlet box red">
+<div class="portlet-title">
+<big><big><big>Detail Penerimaan Barang</big></big></big>
+<div class="tools">
+	<a href="javascript:;" class="remove" ng-click="close()"></a>
+</div>
+</div></div>
+
+<div class="modal-body">
+    <!-- <button class="btn btn-default btn-xs pull-right" type="button" ng-click="close()">
+        <span class="glyphicon glyphicon-remove"></span>
+    </button>
+    <h3>Detail Penerimaan Barang</h3> -->
+    <table class="table table-bordered table-condensed">
+        <tr>
+            <td class="col-xs-6">
+                <strong>Nomor</strong>
+            </td>
+            <td class="col-xs-6" ng-bind="penerimaanBarang.nomor"></td>
+        </tr>
+        <tr>
+            <td>
+                <strong>Tanggal Dibuat</strong>
+            </td>
+            <td ng-bind="penerimaanBarang.tanggalBuat | date:'longDate'"></td>
+        </tr>
+        <tr>
+            <td>
+                <strong>Tanggal Datang</strong>
+            </td>
+            <td ng-bind="penerimaanBarang.tanggalDatang | date:'longDate'"></td>
+        </tr>
+        <tr>
+            <td>
+                <strong>Nomor SP</strong>
+            </td>
+            <td ng-bind="penerimaanBarang.sp"></td>
+        </tr>
+        <tr>
+            <td>
+                <strong>Supplier</strong>
+            </td>
+            <td ng-bind="penerimaanBarang.supplier.nama"></td>
+        </tr>
+        <tr>
+            <td>
+                <strong>Nomor Surat Jalan</strong>
+            </td>
+            <td ng-bind="penerimaanBarang.nomorSj"></td>
+        </tr>
+        <tr>
+            <td>
+                <strong>Diskon</strong>
+            </td>
+            <td ng-bind="penerimaanBarang.diskon"></td>
+        </tr>
+        <tr>
+            <td>
+                <strong>Valuta</strong>
+            </td>
+            <td ng-bind="penerimaanBarang.valuta"></td>
+        </tr>
+        <tr>
+            <td>
+                <strong>Valuta Bayar</strong>
+            </td>
+            <td ng-bind="penerimaanBarang.valutaBayar"></td>
+        </tr>
+        <tr>
+            <td>
+                <strong>Kurs</strong>
+            </td>
+            <td ng-bind="penerimaanBarang.kurs"></td>
+        </tr>
+        <tr>
+            <td>
+                <strong>Status</strong>
+            </td>
+            <td ng-bind="penerimaanBarang.status"></td>
+        </tr>
+        <tr>
+            <td colspan=2>
+                <table class="table table-bordered table-condensed">
+                    <tr>
+                        <th colspan=6 class="text-center">Item Barang</th>
+                    </tr>
+                    <tr>
+                        <th class="text-center">Nomor SPP</th>
+                        <th class="text-center">Nama</th>
+                        <th class="text-center">Satuan</th>
+                        <th class="text-center">Jumlah</th>
+                        <th class="text-center">Harga</th>
+                        <th class="text-center">Status</th>
+                    </tr>
+                    <tr ng-repeat="itemBarang in penerimaanBarang.lpbItemsList">
+                        <td class="text-center" ng-bind="itemBarang.spp"></td>
+                        <td class="text-center" ng-bind="itemBarang.barang.nama"></td>
+                        <td class="text-center" ng-bind="itemBarang.barang.satuan"></td>
+                        <td class="text-center" ng-bind="itemBarang.qty"></td>
+                        <td class="text-center" ng-bind="itemBarang.harga"></td>
+                        <td class="text-center" ng-bind="itemBarang.status"></td>
+                    </tr>
+                </table>
+            </td>
+        </tr>
+    </table>
+	<div class= "pull-right">
+    <button class="btn btn-sm yellow" type="button" ng-click="openUpdate(penerimaanBarang)" ng-disabled="penerimaanBarangForm.$invalid">
+        <span class="glyphicon glyphicon-floppy-disk"></span>
+        <span>&nbsp;Ubah</span>
+    </button>
+    <button class="btn btn-sm red" type="button" ng-click="delete(penerimaanBarang)" ng-show="!newForm">
+        <span class="glyphicon glyphicon-trash"></span>
+        <span>&nbsp;Hapus</span>
+    </button>
+	</div></br>
+</div>

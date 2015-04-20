@@ -1,0 +1,96 @@
+<div class="portlet box red">
+<div class="portlet-title">
+<big><big><big>Detail Permintaan Barang</big></big></big>
+<div class="tools">
+	<a href="javascript:;" class="remove" ng-click="close()"></a>
+</div>
+</div></div>
+
+<div class="modal-body">
+   <!--  <button class="btn btn-default btn-xs pull-right" type="button" ng-click="close()">
+        <span class="glyphicon glyphicon-remove"></span>
+    </button>
+    <h3>Detail Permintaan Barang</h3> -->
+    <table class="table table-bordered table-condensed">
+        <tr>
+            <td class="col-xs-6">
+                <strong>Nomor</strong>
+            </td>
+            <td class="col-xs-6" ng-bind="permintaanBarang.nomor"></td>
+        </tr>
+        <tr>
+            <td>
+                <strong>Tanggal</strong>
+            </td>
+            <td ng-bind="permintaanBarang.tanggal | date:'longDate'"></td>
+        </tr>
+        <tr>
+            <td>
+                <strong>Jenis</strong>
+            </td>
+            <td>
+                <div ng-if="permintaanBarang.jenis">EMERGENCY</div>
+                <div ng-if="!permintaanBarang.jenis">RUTIN</div>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <strong>Peminta</strong>
+            </td>
+            <td ng-bind="permintaanBarang.departemen.departemen"></td>
+        </tr>
+        <tr>
+            <td>
+                <strong>Periode</strong>
+            </td>
+            <td ng-bind="permintaanBarang.periode | periodeFilter | date:'MMMM yyyy'"></td>
+        </tr>
+        <tr>
+            <td>
+                <strong>Status</strong>
+            </td>
+            <td ng-bind="permintaanBarang.status"></td>
+        </tr>
+        <tr>
+            <td colspan=2>
+                <table class="table table-bordered table-condensed">
+                    <tr>
+                        <th colspan=7 class="text-center">Item Barang</th>
+                    </tr>
+                    <tr>
+                        <th class="text-center">Nama</th>
+                        <th class="text-center">Satuan</th>
+                        <th class="text-center">Jumlah</th>
+                        <th class="text-center">Tanggal Butuh</th>
+                        <th class="text-center">Status</th>
+                        <th class="text-center">Sisa</th>
+                        <th class="text-center">Keterangan</th>
+                    </tr>
+                    <tr ng-repeat="itemBarang in permintaanBarang.sppItemsList">
+                        <td class="text-center" ng-bind="itemBarang.barang.nama"></td>
+                        <td class="text-center" ng-bind="itemBarang.barang.satuan"></td>
+                        <td class="text-center" ng-bind="itemBarang.jumlah"></td>
+                        <td class="text-center" ng-bind="itemBarang.tanggalButuh | date:'longDate'"></td>
+                        <td class="text-center" ng-bind="itemBarang.status"></td>
+                        <td class="text-center" ng-bind="itemBarang.sisa"></td>
+                        <td class="text-center" ng-bind="itemBarang.keterangan"></td>
+                    </tr>
+                </table>
+            </td>
+        </tr>
+    </table>
+	<div class= "pull-right">
+    <button class="btn btn-sm yellow" type="button" ng-click="openUpdate(permintaanBarang)" ng-if="permintaanBarang.status=='RECEIVED'" ng-disabled="permintaanBarangForm.$invalid">
+        <span class="glyphicon glyphicon-floppy-disk"></span>
+        <span>&nbsp;Ubah</span>
+    </button>
+    <button class="btn btn-sm green" type="button" ng-click="approve(permintaanBarang)" ng-if="permintaanBarang.status=='RECEIVED'">
+        <span class="glyphicon glyphicon-ok"></span>
+        <span>&nbsp;Setujui</span>
+    </button>
+    <button class="btn btn-sm red" type="button" ng-click="reject(permintaanBarang)" ng-if="permintaanBarang.status=='RECEIVED'">
+        <span class="glyphicon glyphicon-remove"></span>
+        <span>&nbsp;Tolak</span>
+    </button>
+	</div><br>
+</div>

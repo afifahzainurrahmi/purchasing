@@ -1,0 +1,68 @@
+<div class="portlet box red">
+						<div class="portlet-title">
+							<div class="caption">
+								<div ng-show="newForm">Tambah Barang</div>
+								<div ng-show="!newForm">Ubah Barang</div>
+							</div>
+							<div class="tools">
+								<a href="javascript:;" class="remove" ng-click="$dismiss()">
+								</a>
+							</div>
+						</div>
+					</div>
+
+<div class="modal-body">
+    <!-- <span ng-bind="barang|json"></span>
+    <br/> -->
+    <!-- <button class="btn btn-default btn-xs pull-right" type="button" ng-click="$dismiss()">
+        <span class="glyphicon glyphicon-remove"></span>
+    </button>
+    <div ng-show="newForm">
+        <h3>Tambah Barang</h3>
+    </div>
+    <div ng-show="!newForm">
+        <h3>Ubah Barang</h3>
+    </div>
+    <br/> -->
+    <form name="barangForm" class=row>
+        <div class="form-group col-xs-12" ng-if="!newForm">
+            <label for="kode">Kode:&nbsp;</label>
+            <span ng-bind="barang.kode"></span>
+        </div>
+        <div class="form-group col-xs-12 input-group-sm">
+            <label for="nama">Nama</label>
+            <input type="text" class="form-control" id="nama" name="nama" placeholder="Masukkan Nama.." ng-model="barang.nama" required/>
+        </div>
+        <div class="form-group col-xs-6 input-group-sm">
+            <label for="kategori">Kategori</label>
+            <select class="form-control" id="kategori" name="kategori" ng-model="barang.kategori" ng-options="kategoriBarang.kode as kategoriBarang.kategori for kategoriBarang in kategoriBarangs | orderBy: 'kategori'" required>
+                <option value="">-- Pilih Kategori --</option>
+            </select>
+        </div>
+        <div class="form-group col-xs-6 input-group-sm">
+            <label for="satuan">Satuan</label>
+            <select class="form-control" id="satuan" name="satuan" ng-model="barang.satuan" ng-options="satuanGudang.satuan as satuanGudang.satuan for satuanGudang in satuanGudangs" required>
+                <option value="">-- Pilih Satuan --</option>
+            </select>
+        </div>
+        <div class="form-group col-xs-12 input-group-sm">
+            <label for="spesifikasi">Spesifikasi</label>
+            <textarea class="form-control" id="spesifikasi" name="spesifikasi" placeholder="Masukkan Spesifikasi.." ng-model="barang.spesifikasi"></textarea>
+        </div>
+        <div class="form-group col-xs-12 input-group-sm">
+            <label for="deskripsi">Deskripsi</label>
+            <textarea class="form-control" id="deskripsi" name="deskripsi" placeholder="Masukkan Deskripsi.." ng-model="barang.deskripsi"></textarea>
+        </div>
+        <div class="col-xs-12">
+		<div class="pull-right">
+            <button type="submit" class="btn btn-sm purple" ng-click="newForm ? create() : update()" ng-disabled="barangForm.$invalid">
+                <span class="glyphicon glyphicon-floppy-disk"></span>
+                <span>&nbsp;Simpan</span>
+            </button>
+            <button type="button" class="btn btn-sm red" ng-click="delete(barang)" ng-show="!newForm">
+                <span class="glyphicon glyphicon-trash"></span>
+                <span>&nbsp;Hapus</span>
+            </button>
+        </div></div>
+    </form>
+</div>

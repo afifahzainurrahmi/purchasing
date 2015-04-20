@@ -1,0 +1,50 @@
+<div class="portlet box red">
+<div class="portlet-title">
+<big><big><big>Detail Supplier</big></big></big>
+<div class="tools">
+	<a href="javascript:;" class="remove" ng-click="close()"></a>
+</div>
+</div></div>
+
+<div class="modal-body">
+    <!-- <button class="btn btn-default btn-xs pull-right" type="button" ng-click="close()">
+        <span class="glyphicon glyphicon-remove"></span>
+    </button>
+    <h3>Detail Supplier</h3> -->
+    <table class="table table-bordered table-condensed">
+        <tr>
+            <td>
+                <strong>Kode</strong>
+            </td>
+            <td ng-bind="supplier.kode"></td>
+        </tr>
+        <tr>
+            <td>
+                <strong>Nama</strong>
+            </td>
+            <td ng-bind="supplier.nama"></td>
+        </tr>
+        <tr>
+            <td>
+                <strong>Alamat</strong>
+            </td>
+            <td ng-bind="supplier.alamat"></td>
+        </tr>
+        <tr>
+            <td>
+                <strong>Telepon</strong>
+            </td>
+            <td ng-bind="supplier.nomorTelepon"></td>
+        </tr>
+    </table>
+	<div class= "pull-right">
+    <button type="button" class="btn btn-sm yellow" ng-click="openUpdate(supplier)" ng-disabled="supplierForm.$invalid">
+        <span class="glyphicon glyphicon-floppy-disk"></span>
+        <span>&nbsp;Ubah</span>
+    </button>
+    <button type="button" class="btn btn-sm red" ng-click="delete(supplier)" ng-show="!newForm">
+        <span class="glyphicon glyphicon-trash"></span>
+        <span>&nbsp;Hapus</span>
+    </button>
+	</div><br/>
+</div>

@@ -1,0 +1,97 @@
+<div class="portlet box red">
+<div class="portlet-title">
+<big><big><big>Detail Barang</big></big></big>
+<div class="tools">
+	<a href="javascript:;" class="remove" ng-click="$dismiss()"></a>
+</div>
+</div></div>
+<div class="modal-body">
+    <!-- <button class="btn btn-default btn-xs pull-right" type="button" ng-click="$dismiss()">
+        <span class="glyphicon glyphicon-remove"></span>
+    </button>
+    <h3>Detail Barang</h3> -->
+    <table class="table table-bordered table-condensed">
+        <tr>
+            <td class="col-xs-6">
+                <strong>Kode</strong>
+            </td>
+            <td class="col-xs-6" ng-bind="barang.kode"></td>
+        </tr>
+        <tr>
+            <td>
+                <strong>Kategori</strong>
+            </td>
+            <td ng-bind="barang.kategori"></td>
+        </tr>
+        <tr>
+            <td>
+                <strong>Nama</strong>
+            </td>
+            <td ng-bind="barang.nama"></td>
+        </tr>
+        <tr>
+            <td>
+                <strong>Satuan</strong>
+            </td>
+            <td ng-bind="barang.satuan"></td>
+        </tr>
+        <tr>
+            <td>
+                <strong>Spesifikasi</strong>
+            </td>
+            <td ng-bind="barang.spesifikasi"></td>
+        </tr>
+        <tr>
+            <td>
+                <strong>Deskripsi</strong>
+            </td>
+            <td ng-bind="barang.deskripsi"></td>
+        </tr>
+        <!-- <tr>
+            <div class="form-group col-xs-6">
+                <label for="kode">Kode:&nbsp;</label>
+                <span ng-bind="barang.kode"></span>
+            </div>
+        </tr>
+        <tr>
+            <div class="form-group col-xs-6">
+                <label for="kategori">Kategori:&nbsp;</label>
+                <span ng-bind="barang.kategori"></span>
+            </div>
+        </tr>
+        <tr>
+            <div class="form-group col-xs-6">
+                <label for="nama">Nama:&nbsp;</label>
+                <span ng-bind="barang.nama"></span>
+            </div>
+        </tr>
+        <tr>
+            <div class="form-group col-xs-6">
+                <label for="satuan">Satuan:&nbsp;</label>
+                <span ng-bind="barang.satuan"></span>
+            </div>
+        </tr>
+        <tr>
+            <div class="form-group col-xs-6">
+                <label for="spesifikasi">Spesifikasi:&nbsp;</label>
+                <span ng-bind="barang.spesifikasi"></span>
+            </div>
+        </tr>
+        <tr>
+            <div class="form-group col-xs-6">
+                <label for="deskripsi">Deskripsi:&nbsp;</label>
+                <span ng-bind="barang.deskripsi"></span>
+            </div>
+        </tr> -->
+    </table>
+	<div class= "pull-right">
+    <button type="button" class="btn btn-sm yellow" ng-click="$dismiss('update')" ng-disabled="barangForm.$invalid">
+        <span class="glyphicon glyphicon-floppy-disk"></span>
+        <span>&nbsp;Ubah</span>
+    </button>
+    <button type="button" class="btn btn-sm red" ng-click="delete(barang)">
+        <span class="glyphicon glyphicon-trash"></span>
+        <span>&nbsp;Hapus</span>
+    </button>
+	</div><br>
+</div>

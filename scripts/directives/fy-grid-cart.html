@@ -1,0 +1,55 @@
+<div class="portlet box red">
+<div class="portlet-title">
+<big><big><big>Detail Keranjang</big></big></big>
+<div class="tools">
+	<a href="javascript:;" class="remove" ng-click="close()"></a>
+</div>
+</div></div>
+
+<div class="modal-body">
+    <!-- <span ng-repeat="item in cart">
+        <span ng-bind="item|json"></span>
+        <br/>
+        <br/>
+    </span>
+    <button class="btn btn-default btn-xs pull-right" type="button" ng-click="close()">
+        <span class="glyphicon glyphicon-remove"></span>
+    </button>
+    <h3>Detail Keranjang</h3> -->
+    <table class="table table-bordered table-condensed">
+        <tr>
+            <th ng-repeat="field in detailFields" class="text-center">
+                <span ng-bind="field.header"></span>
+            </th>
+            <th class="text-center">Pilihan</th>
+        </tr>
+        <tr ng-repeat="item in cart | orderBy:sort.field">
+            <td ng-repeat="field in detailFields" class="text-center">
+                <span ng-bind="item.{{field.name}}"></span>
+            </td>
+            <td class="text-center">
+                <button type="button" class="btn btn-sm red" ng-click="deleteCartItem(item)">
+                    <span class="glyphicon glyphicon-trash"></span>
+                </button>
+            </td>
+        </tr>
+    </table><br>
+	<div class= "pull-right">
+    <button type="button" class="btn btn-sm purple" ng-if="module=='katalogBarang'" ng-click="openCreatePermintaanBarang()">
+        <span class="glyphicon glyphicon-floppy-disk"></span>
+        <span>&nbsp;Buat SPP</span>
+    </button>
+    <button type="button" class="btn btn-sm purple" ng-if="module=='permintaanBarang'" ng-click="openCreatePesananBarang()">
+        <span class="glyphicon glyphicon-floppy-disk"></span>
+        <span>&nbsp;Buat SP</span>
+    </button>
+    <button type="button" class="btn btn-sm purple" ng-if="module=='waste'" ng-click="openCreatePenjualanWaste()">
+        <span class="glyphicon glyphicon-floppy-disk"></span>
+        <span>&nbsp;Buat Penjualan Waste</span>
+    </button>
+    <button type="button" class="btn btn-sm red" ng-click="clearCart()">
+        <span class="glyphicon glyphicon-trash"></span>
+        <span>&nbsp;Kosongkan</span>
+    </button>
+	</div><br>
+</div>

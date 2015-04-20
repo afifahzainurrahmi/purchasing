@@ -1,0 +1,101 @@
+<div class="portlet box red">
+						<div class="portlet-title">
+							<div class="caption">
+								<div ng-show="newForm">Tambah Pesanan Barang</div>
+								<div ng-show="!newForm">Ubah Pesanan Barang</div>
+							</div>
+							<div class="tools">
+								<a href="javascript:;" class="remove" ng-click="close()">
+								</a>
+							</div>
+						</div>
+					</div>
+
+<div class="modal-body">
+    <!-- <span ng-bind="pesananBarang|json"></span>
+    <br/>
+    <button type="button" class="btn btn-default btn-xs pull-right" ng-click="close()">
+        <span class="glyphicon glyphicon-remove"></span>
+    </button>
+    <div ng-show="newForm">
+        <h3>Tambah Pesanan Barang</h3>
+    </div>
+    <div ng-show="!newForm">
+        <h3>Ubah Pesanan Barang</h3>
+    </div>
+    <br/> -->
+    <form class="row" name="pesananBarangForm">
+        <div class="form-group col-xs-12" ng-if="!newForm">
+            <label for="nomor">Nomor:&nbsp;</label>
+            <span ng-bind="pesananBarang.nomor"></span>
+        </div>
+        <div class="form-group col-xs-12 input-group-sm">
+            <label for="supplier">Supplier</label>
+            <select class="form-control" id="supplier" name="supplier" ng-model="pesananBarang.supplier" ng-options="supplier.nama for supplier in suppliers | orderBy: 'supplier.nama' track by supplier.nama" required>
+                <option value="">-- Pilih Supplier --</option>
+            </select>
+        </div>
+        <div class="form-group col-xs-2 input-group-sm">
+            <label for="diskon">Diskon</label>
+            <input type="number" class="form-control text-center" id="diskon" name="diskon" ng-model="pesananBarang.diskon" min="0" required />
+        </div>
+        <div class="form-group col-xs-2 input-group-sm">
+            <label for="valuta">Valuta</label>
+            <input type="text" class="form-control text-center" id="valuta" name="valuta" ng-model="pesananBarang.valuta" required />
+        </div>
+        <div class="form-group col-xs-2 input-group-sm">
+            <label for="valutaBayar">Valuta Bayar</label>
+            <input type="text" class="form-control text-center" id="valutaBayar" name="valutaBayar" ng-model="pesananBarang.valutaBayar" required />
+        </div>
+        <div class="form-group col-xs-2 input-group-sm">
+            <label for="syaratBayar">Syarat Bayar</label>
+            <input type="number" class="form-control text-center" id="syaratBayar" name="syaratBayar" ng-model="pesananBarang.syaratBayar" pattern="\d+" required />
+        </div>
+        <div class="form-group col-xs-2 input-group-sm">
+            <label for="ppn">PPN:&nbsp;</label>
+            <input type="checkbox" id="ppn" name="ppn" ng-model="pesananBarang.ppn" />
+        </div>
+        <div class="form-group col-xs-12 input-group-sm">
+            <table class="table table-bordered table-condensed">
+                <tr>
+                    <th class="text-center" colspan=6>Item Barang</th>
+                </tr>
+                <tr>
+                    <th class="text-center">Nomor SPP</th>
+                    <th class="text-center">Nama</th>
+                    <th class="text-center">Satuan</th>
+                    <th class="text-center">Jumlah</th>
+                    <th class="text-center">Harga</th>
+                    <th></th>
+                </tr>
+                <tr ng-repeat="itemBarang in pesananBarang.spItemsList">
+                    <td class="text-center" ng-bind="itemBarang.spp"></td>
+                    <td class="text-center" ng-bind="itemBarang.barang.nama"></td>
+                    <td class="text-center" ng-bind="itemBarang.barang.satuan"></td>
+                    <td class="input-group-sm">
+                        <input class="form-control text-center" type="number" name="qty" ng-model="itemBarang.qty" min="1" pattern="\d+" required/>
+                    </td>
+                    <td class="input-group-sm">
+                        <input class="form-control text-center" type="number" name="harga" ng-model="itemBarang.harga" min="0" required/>
+                    </td>
+                    <td class="text-center input-group-sm">
+                        <button type="button" class="btn btn-sm red" ng-click="removeDetail($index)">
+                            <span class="glyphicon glyphicon-trash"></span>
+                        </button>
+                    </td>
+                </tr>
+            </table>
+        </div>
+        <div class="col-xs-12">
+		<div class="pull-right">
+            <button type="submit" class="btn btn-sm purple" ng-click="newForm ? create() : update()" ng-disabled="pesananBarangForm.$invalid||!pesananBarang.spItemsList.length">
+                <span class="glyphicon glyphicon-floppy-disk"></span>
+                <span>&nbsp;Simpan</span>
+            </button>
+            <button type="button" class="btn btn-sm red"  ng-click="delete(pesananBarang)" ng-show="!newForm">
+                <span class="glyphicon glyphicon-trash"></span>
+                <span>&nbsp;Hapus</span>
+            </button>
+        </div></div>
+    </form>
+</div>
